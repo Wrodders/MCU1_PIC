@@ -1,6 +1,8 @@
 ;Written by Winston Rodrigo
 ;Student ID 10706715
-;Program to Cycle 7seg Display 0-99
+;Program to Cycle 7seg Display 0-99 Dec
+;LEDS represents X*10^2 where X is 0-9 
+;Total Range represents 0-999 decimal 
     processor 18F8722
     config OSC=HS, WDT=OFF, LVP=OFF
     radix decimal
