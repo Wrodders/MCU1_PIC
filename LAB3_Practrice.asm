@@ -1,4 +1,4 @@
-;Written by: Winston Student ID 10706715
+;Student ID 10706715
 ;Lab3 Practice 
     processor 18F8722
     config OSC=HS, WDT=OFF, LVP=OFF
@@ -24,6 +24,8 @@ ADCON1	equ 0xFC1		;
 ; Define Variables 
 var_SW	equ 0x01		; Store Switches Values 
 var_LM	equ 0x02		; Loop Multplier
+	MOVLW	D'1'		;
+	MOVWF	var_LM		; Set defult multiplier to 1
 var_BCount   equ 0x400		; Loop Counter basic
 var_Count40ms equ 0x401		; 40ms loop counter
 
@@ -76,7 +78,7 @@ L2				;
 	RETURN			; exit
 
 SUB_400ms    
-	MOVLB	D'10'		;
+	MOVLW	D'10'		;
 	MOVWF	var_LM		;
 L3				;
 	CALL	SUB_40ms	;
@@ -86,17 +88,17 @@ L3				;
 
 ;------LEDs--------	
 SUB_LED40
-	BSF	LATF,7		;TURN ON
+	BSF	LATF,0		;TURN ON
 	CALL	SUB_40ms	;
-	BCF	LATF,7		;TURN OFF
+	BCF	LATF,0		;TURN OFF
 	CALL	SUB_40ms	;    
 	RETURN			;
 	
 SUB_LED400
 L_M2				;
-	BSF	LATF,7		; TURN ON
+	BSF	LATF,0		; TURN ON
 	CALL	SUB_400ms	;
-	BCF	LATF,7		; TURN OFF
+	BCF	LATF,0		; TURN OFF
 	CALL	SUB_400ms	;
 	BRA	L_M2		; Loop forever 
 	
