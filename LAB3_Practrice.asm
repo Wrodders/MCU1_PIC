@@ -24,8 +24,6 @@ ADCON1	equ 0xFC1		;
 ; Define Variables 
 var_SW	equ 0x01		; Store Switches Values 
 var_LM	equ 0x02		; Loop Multplier
-	MOVLW	D'1'		;
-	MOVWF	var_LM		; Set defult multiplier to 1
 var_BCount   equ 0x400		; Loop Counter basic
 var_Count40ms equ 0x401		; 40ms loop counter
 
